@@ -17,7 +17,7 @@ winget install Python
 pip install --upgrade pip
 pip install selenium
 ```
-## Bước 3: Chạy Script
+## Bước 2: Chạy Script
 + Clone tool về máy hoặc tải file zip về
 + Vào thư mục chứa file `script.py`, chuột phải vào file `script.py`, chọn "Open with", chọn "Python", như hình
 ![Alt text](image-2.png)

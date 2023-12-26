@@ -35,4 +35,6 @@ pip install selenium
 + Rồi, mặc kệ nó
 + Từ nay về sau cứ chạy script như vậy là ok
 
-**Lưu ý: Tool chỉ vào trang đăng ký học phần cho nhanh, khỏi mất công bấm hư phím, còn đăng ký môn nào tự mà tick, làm cho nó tự tick mất công nó đăng ký lộn**
+**Lưu ý:**
++ Tool sẽ lặp lại quy trình liên tục đến khi nào vào được trang đăng ký học phần mới thôi
++ Tool chỉ vào trang đăng ký học phần cho nhanh, khỏi mất công bấm hư phím, còn đăng ký môn nào tự mà tick, làm cho nó tự tick mất công nó đăng ký lộn

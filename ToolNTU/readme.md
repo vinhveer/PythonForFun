@@ -19,6 +19,10 @@ pip install selenium
 ```
 ## Bước 2: Chạy Script
 + Clone tool về máy hoặc tải file zip về
++ Vào thư mục chứa file `script.py`, chuột phải vào file `script.py`, chọn "Open with", chọn "Thonny", như hình
+![Alt text](image-4.png)
++ Sửa lại thông tin MSSV (username) và mật khẩu (password), như hình
+![Alt text](image-3.png)
 + Vào thư mục chứa file `script.py`, chuột phải vào file `script.py`, chọn "Open with", chọn "Python", như hình
 ![Alt text](image-2.png)
 + Rồi, mặc kệ nó

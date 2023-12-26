@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 # Đọc thông tin tài khoản từ file
 username = "64132989"
-password = "<Pass>"
+password = "Vinhveer0986209261"
 
 # Khởi tạo trình duyệt
 driver = webdriver.Chrome()

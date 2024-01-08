@@ -1,27 +1,34 @@
-import requests
+import openpyxl
+from openpyxl import Workbook
+from openpyxl.styles import Alignment
 
-base_url = "https://elearning.ntu.edu.vn/enrol/index.php?id="
-error_404_links = []
+# Tạo một workbook mới
+workbook = Workbook()
 
-# Tạo session
-session = requests.Session()
+# Lấy sheet active (sheet đầu tiên)
+sheet = workbook.active
 
-# Thực hiện đăng nhập - thay username và password bằng thông tin đăng nhập của bạn
-login_payload = {
-    'username': '64132989',
-    'password': 'Vinhveer0986209261'
-}
+# Thêm dữ liệu vào sheet
+sheet['A1'] = 'Tên'
+sheet['B1'] = 'Tuổi'
 
-login_url = 'https://elearning.ntu.edu.vn/login/index.php'
-session.post(login_url, data=login_payload)
+# Giả sử bạn có một danh sách người dùng
+users = [
+    {'name': 'Nguyen Van A', 'age': 25},
+    {'name': 'Tran Thi B', 'age': 30},
+    # ... thêm các người dùng khác tại đây
+]
 
-for id in range(10800, 30001):
-    url = f"{base_url}{id}"
-    response = session.get(url)
-    if response.status_code == 404:
-        error_404_links.append(url)
-    print(f"Checking {url}: Status Code {response.status_code}")
+# Thêm dữ liệu từ danh sách người dùng vào sheet
+for index, user in enumerate(users, start=2):
+    sheet[f'A{index}'] = user['name']
+    sheet[f'B{index}'] = user['age']
 
-print("Links returning 404 error:")
-for link in error_404_links:
-    print(link)
+# Định dạng cột A và B (căn giữa văn bản)
+for col in ['A', 'B']:
+    for row in range(1, len(users) + 2):
+        cell = sheet[f'{col}{row}']
+        cell.alignment = Alignment(horizontal='center')
+
+# Lưu workbook vào một file Excel
+workbook.save('example.xlsx')

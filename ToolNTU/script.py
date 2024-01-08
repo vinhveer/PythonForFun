@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # Đọc thông tin tài khoản từ file
-username = "64132989"
-password = "Vinhveer0986209261"
+username = "65131027"
+password = "HuynhThiMyHoa2005@"
 
 # Khởi tạo trình duyệt
 driver = webdriver.Chrome()

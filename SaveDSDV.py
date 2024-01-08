@@ -6,13 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # Đọc danh sách tài khoản từ file
 accounts = []
-with open("QLDV/acc.txt", "r") as file:
+with open("acc.txt", "r") as file:
     for line in file:
         line = line.strip()
         if line:
             username, password = line.split(" ")
             accounts.append((username, password))
-with open("QLDV/ketqua.txt", "w", encoding="utf-8") as fileketqua:
+with open("ketqua.txt", "w", encoding="utf-8") as fileketqua:
     # Truy cập vào trang đăng nhập
     for account in accounts:
         # Khởi tạo trình duyệt

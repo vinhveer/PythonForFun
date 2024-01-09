@@ -5,25 +5,100 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 import time
 
-def click_button_by_title(driver, title, ma_hoc_phan):
+def doi_nhom(driver, ma_hoc_phan, target):
     try:
-        print(f"Thực hiện truy vấn với học phần {title}")
-        xpath = f"//td[text()='{ma_hoc_phan}']/following-sibling::td/img[@title='{title}']"
+        # Tìm kiếm học phần, ấn vào nút đổi nhóm
+        print(f"Thực hiện đổi nhóm")
+        xpath = f"//td[text()='{ma_hoc_phan}']/following-sibling::td/img[@title='Đổi nhóm']"
         button = driver.find_element(By.XPATH, xpath)
         button.click()
-        print(f"Đã thực hiện click vào nút {title}")
-        sleep_time = 100
-        time.sleep(sleep_time)
-        return True
+        print(f"Đã thực hiện click vào nút Đổi nhóm")
+        
+        # Tìm và click vào nút "Đổi nhóm" của học phần target
+        try:
+            print(f"Tìm và click vào nút Đổi nhóm của học phần {target}")
+            xpath_target = f"//td[text()='{target}']/following-sibling::td/img[@title='Đổi nhóm']"
+            target_button = driver.find_element(By.XPATH, xpath_target)
+            target_button.click()
+            print(f"Đã thực hiện click vào nút Đổi nhóm của học phần {target}")
+
+            # Thêm bước tương ứng với học phần {ma_hoc_phan} ở đây (ví dụ: nhập thông tin, thực hiện hành động, ...)
+            # ...
+            # Chờ cảnh báo xuất hiện
+            alert = WebDriverWait(driver, 10).until(EC.alert_is_present())
+
+            # In nội dung cảnh báo
+            print("Alert Text:", alert.text)
+
+            # Xác nhận cảnh báo hoặc bỏ qua cảnh báo (tùy thuộc vào yêu cầu của bạn)
+            alert.accept()  # Xác nhận cảnh báo
+
+            return True
+        except NoSuchElementException:
+            print(f"Không tìm thấy nút Đổi nhóm của học phần {target}")
+            return False
     except NoSuchElementException:
-        print(f"Không tìm thấy nút {title}")
+        print(f"Không thể thực hiện, bạn chưa đăng ký hoặc xác nhận đăng ký học phần {ma_hoc_phan}")
         return False
 
-# Khởi tạo trình duyệt
-driver = webdriver.Edge()
 
-username = "65133706"
-password = "Thutra@2005"
+def xac_nhan_dang_ky(driver, ma_hoc_phan, target):
+    try:
+        # Tìm kiếm học phần, ấn vào nút đổi nhóm
+        print(f"Thực hiện xác nhận đăng ký")
+        xpath = f"//td[text()='{ma_hoc_phan}']/following-sibling::td/img[@title='Xác nhận đăng ký']"
+        button = driver.find_element(By.XPATH, xpath)
+        button.click()
+        print(f"Đã thực hiện click vào nút Xác nhận đăng ký")
+        doi_nhom(driver, target)
+        return True
+    except NoSuchElementException:
+        print(f"Không thể thực hiện, bạn chưa thêm học phần này vào KHHT {ma_hoc_phan}")
+        return False
+
+def dang_ky(driver, ma_hoc_phan, target):
+    try:
+        # Tìm kiếm học phần, ấn vào nút đăng ký
+        print(f"Thực hiện đăng ký")
+        xpath = f"//td[text()='{ma_hoc_phan}']/following-sibling::td/img[@title='Đăng ký']"
+        button = driver.find_element(By.XPATH, xpath)
+        button.click()
+        print(f"Đã thực hiện click vào nút đăng ký")
+
+        # Tìm và click vào nút "Đăng ký" của học phần target
+        try:
+            print(f"Tìm và click vào nút Đăng ký của học phần {target}")
+            xpath_target = f"//td[text()='{target}']/following-sibling::td/img[@title='Đăng ký']"
+            target_button = driver.find_element(By.XPATH, xpath_target)
+            target_button.click()
+            print(f"Đã thực hiện click vào nút Đăng ký của học phần {target}")
+
+            # Thêm bước tương ứng với học phần {ma_hoc_phan} ở đây (ví dụ: nhập thông tin, thực hiện hành động, ...)
+            # ...
+
+            return True
+        except NoSuchElementException:
+            print(f"Không tìm thấy nút Đăng ký của học phần {target}")
+            return False
+    except NoSuchElementException:
+        print(f"Không thể thực hiện đăng ký do chưa xác nhận toàn bộ HP {ma_hoc_phan}")
+        return False
+
+
+
+# Khởi tạo trình duyệt
+driver = webdriver.Chrome()
+
+# Mô phỏng mạng chậm
+driver.set_network_conditions(
+    offline=False,
+    latency=1000,  # Giả lập thời gian trễ là 1000ms (1 giây)
+    download_throughput=500 * 1024,  # Giả lập tốc độ tải xuống là 500 KBps
+    upload_throughput=500 * 1024  # Giả lập tốc độ tải lên là 500 KBps
+)
+
+username = "64132989"
+password = "Vinhveer0986209261"
 
 # Truy cập vào trang đăng nhập
 driver.get("https://sinhvien.ntu.edu.vn")
@@ -51,12 +126,15 @@ driver.get("https://sinhvien.ntu.edu.vn/sinhvien/dangkyhocphan/dangky")
 driver.implicitly_wait(10)
 
 # Tìm mã học phần trong file HTML và thực hiện các bước kiểm tra và click
-ma_hoc_phans = ["FLS380", "POL308", "SSH379"]
-titles = ["Đổi nhóm", "Xác nhận đăng ký", "Đăng ký"]
-for ma_hoc_phan in ma_hoc_phans:
-    for title in titles:
-        if click_button_by_title(driver, title, ma_hoc_phan):
-            break
+ma_hoc_phan = "SOT375"
+target = "03" 
+
+# ma_hoc_phan = "SOT332"
+# target = "07"
+
+doi_nhom(driver, ma_hoc_phan, target)
+xac_nhan_dang_ky(driver, ma_hoc_phan, target)
+dang_ky(driver, ma_hoc_phan, target)
 
 # Đợi một khoảng thời gian ngẫu nhiên
 sleep_time = 100

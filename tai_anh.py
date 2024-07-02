@@ -62,6 +62,6 @@ def download_and_convert_images(url, download_folder, target_format='PNG'):
         img_counter += 1
 
 # Sử dụng hàm
-url = "https://www.microsoft.com/en-US/" 
+url = "https://www.google.com/" 
 download_folder = "downloaded_images"
 download_and_convert_images(url, download_folder, target_format='PNG')  # Chuyển sang PNG

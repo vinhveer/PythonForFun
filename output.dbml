@@ -1,0 +1,4491 @@
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[FamilyInfoIndex] [int] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_AdditionalTimeDependency] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AdditionalTimeIndex] [bigint] NOT NULL,
+	[FromTime] [datetime2](7) NOT NULL,
+	[ToTime] [datetime2](7) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_AdditionalTimeDependency_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NOT NULL,
+	[Feature] [nvarchar](100) NOT NULL,
+	[HelperATID] [nvarchar](30) NOT NULL,
+	[Level1] [nvarchar](50) NULL,
+	[Level2] [nvarchar](50) NULL,
+	[Level3] [nvarchar](50) NULL,
+	[Level4] [nvarchar](50) NULL,
+	[Level5] [nvarchar](50) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CCMail] [nvarchar](max) NULL,
+	[ConditionForLevel1] [ntext] NULL,
+	[ConditionForLevel2] [ntext] NULL,
+	[ConditionForLevel3] [ntext] NULL,
+	[ConditionForLevel4] [ntext] NULL,
+	[ConditionForLevel5] [ntext] NULL,
+	[ExtendedData] [nvarchar](200) NOT NULL,
+ CONSTRAINT [PK_HR_AdvancedDepartmentDefaultLevel] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentIndex] ASC,
+	[Feature] ASC,
+	[ExtendedData] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Feature] [nvarchar](100) NOT NULL,
+	[HelperATID] [nvarchar](30) NOT NULL,
+	[Level1] [nvarchar](50) NULL,
+	[Level2] [nvarchar](50) NULL,
+	[Level3] [nvarchar](50) NULL,
+	[Level4] [nvarchar](50) NULL,
+	[Level5] [nvarchar](50) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CCMail] [nvarchar](max) NULL,
+	[ConditionForLevel1] [ntext] NULL,
+	[ConditionForLevel2] [ntext] NULL,
+	[ConditionForLevel3] [ntext] NULL,
+	[ConditionForLevel4] [ntext] NULL,
+	[ConditionForLevel5] [ntext] NULL,
+	[ExtendedData] [nvarchar](200) NOT NULL,
+ CONSTRAINT [PK_HR_AdvancedUser] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[Feature] ASC,
+	[ExtendedData] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ApproverGroup] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AreaIndex] [int] NULL,
+	[Name] [nvarchar](2000) NULL,
+	[Number] [nvarchar](50) NULL,
+	[Content] [text] NULL,
+	[PublishedDepartment] [bigint] NULL,
+	[AppliedDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[SignedDate] [smalldatetime] NULL,
+	[SignedPerson] [nvarchar](100) NULL,
+	[AttachedFile] [ntext] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ArchivesTypeIndex] [int] NULL,
+ CONSTRAINT [PK_HR_Archives] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ArchivesType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[RegionIndex] [int] NULL,
+ CONSTRAINT [PK_HR_Area] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](max) NULL,
+	[Name] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedUser] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_AreaToCompany] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AreaToCompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NOT NULL,
+	[StandardSalary] [real] NULL,
+	[StandardHourSalary] [real] NULL,
+	[WageHourlyRate] [real] NULL,
+	[NightAllowanceRate] [real] NULL,
+	[OvertimeShiftOT1] [real] NULL,
+	[OvertimeShiftOT2] [real] NULL,
+	[OvertimeShiftOT3] [real] NULL,
+	[OvertimeShiftOT4] [real] NULL,
+	[OvertimeShiftOT5] [real] NULL,
+	[OvertimeShiftOT6] [real] NULL,
+	[OvertimeShiftOT7] [real] NULL,
+	[OvertimeShiftOT8] [real] NULL,
+	[OvertimeShiftOT9] [real] NULL,
+	[OvertimeShiftOT10] [real] NULL,
+	[FromDate] [datetime2](7) NOT NULL,
+	[ToDate] [datetime2](7) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedUser] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_AreaToDepartment] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AssetID] [nvarchar](50) NULL,
+	[AssetName] [nvarchar](200) NULL,
+	[PurchasedDate] [datetime] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[Unit] [nvarchar](200) NULL,
+	[NetPrice] [decimal](18, 2) NULL,
+	[Status] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[TangibleAssets] [bit] NULL,
+ CONSTRAINT [PK_HR_Asset] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AssetAllocationID] [nvarchar](50) NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[AssetIndex] [int] NOT NULL,
+	[DoerATID] [nvarchar](30) NULL,
+	[IssuedDate] [datetime] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[DebitMoney] [decimal](18, 2) NULL,
+	[Size] [nvarchar](max) NULL,
+	[Number] [int] NOT NULL,
+	[Note] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[DispensingStatus] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_AssetAllocation] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AssetAllocationID] [nvarchar](50) NULL,
+	[Date] [datetime] NULL,
+	[DoerATID] [nvarchar](30) NULL,
+	[Number] [int] NOT NULL,
+	[Note] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_AssetRecovery] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[SwiftCode] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_Bank] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[GroupUser] [nvarchar](max) NULL,
+	[User] [nvarchar](max) NULL,
+	[Url] [nvarchar](max) NULL,
+	[Order] [int] NULL,
+	[CreatedBy] [nvarchar](100) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+ CONSTRAINT [PK_HR_BiDashboard] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](500) NULL,
+	[NameInEng] [nvarchar](500) NULL,
+	[Address] [nvarchar](500) NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Fax] [nvarchar](50) NULL,
+	[Mail] [nvarchar](200) NULL,
+	[Website] [nvarchar](200) NULL,
+	[EstablishedDate] [datetime] NULL,
+	[SubordinateIndex] [int] NULL,
+	[Company] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CompanyIndex] [int] NOT NULL,
+ CONSTRAINT [PK_HR_BranchOffice] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[userName] [nvarchar](100) NULL,
+	[password] [nvarchar](100) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[access_token] [nvarchar](max) NULL,
+	[createDate] [datetime2](7) NULL,
+	[expires_in] [int] NULL,
+	[refresh_token] [nvarchar](max) NULL,
+	[token_type] [nvarchar](max) NULL,
+	[last_username] [nvarchar](max) NULL,
+	[email] [nvarchar](max) NULL,
+	[idUser] [nvarchar](max) NULL,
+	[userType] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_BussinessAccountForEContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_CertificateType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[ChildrenIndex] [int] NULL,
+	[TypeOfChildrenDiplomaIndex] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ChildrenDiploma] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_CitizenIdentificationPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[AreaCode] [nvarchar](20) NULL,
+	[CountryIndex] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CodeOfInsurance] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_City] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[ID] [nvarchar](200) NOT NULL,
+	[Name] [nvarchar](500) NULL,
+	[NameInEng] [nvarchar](500) NULL,
+	[Address] [nvarchar](500) NULL,
+	[Phone1] [nvarchar](50) NULL,
+	[Phone2] [nvarchar](50) NULL,
+	[Fax] [nvarchar](50) NULL,
+	[Mail] [nvarchar](200) NULL,
+	[Website] [nvarchar](200) NULL,
+	[TaxCode] [nvarchar](100) NULL,
+	[Slogan] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[Headquaters] [bit] NULL,
+	[EstablishedDate] [datetime] NULL,
+	[AccountNo] [nvarchar](50) NULL,
+	[BankInfo] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Index] [int] NOT NULL,
+	[Password] [nvarchar](100) NULL,
+	[SecretKey] [nvarchar](100) NULL,
+	[ATIDMinChar] [int] NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[PortalAccountWithoutConfirm] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_Company] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DocumentCode] [nvarchar](50) NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[SubmitDate] [smalldatetime] NULL,
+	[SolvedDate] [smalldatetime] NULL,
+	[ComplainedType] [nvarchar](200) NULL,
+	[ComplainedContent] [ntext] NULL,
+	[Status] [int] NULL,
+	[FollowingEmployeeATID] [nvarchar](30) NULL,
+	[ReplyContent] [ntext] NULL,
+	[Note] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ComplaintLetter] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[ParentType] [int] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ComplaintType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[NationalCode] [nvarchar](20) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](30) NULL,
+ CONSTRAINT [PK_HR_Country] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Classification] [int] NULL,
+	[Date] [datetime] NULL,
+	[Vaccination1] [nvarchar](100) NULL,
+	[VaccinationDate1] [datetime] NULL,
+	[Vaccination2] [nvarchar](100) NULL,
+	[VaccinationDate2] [datetime] NULL,
+	[Vaccination3] [nvarchar](100) NULL,
+	[VaccinationDate3] [datetime] NULL,
+	[BackgroundDisease] [nvarchar](500) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ToDate] [datetime] NULL,
+ CONSTRAINT [PK_HR_Covid] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](400) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Scale] [real] NULL,
+ CONSTRAINT [PK_HR_Criteria] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[PositionIndex] [bigint] NOT NULL,
+	[CriteriaIndex] [int] NOT NULL,
+	[MonthYear] [smalldatetime] NOT NULL,
+	[Guide] [ntext] NULL,
+	[InternalRate] [bit] NULL,
+	[CrossRate] [bit] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CriteriaRate] [ntext] NULL,
+	[CriteriaParentIndex] [int] NULL,
+ CONSTRAINT [PK_HR_CriteriaByPosition] PRIMARY KEY CLUSTERED 
+(
+	[CriteriaIndex] ASC,
+	[MonthYear] ASC,
+	[PositionIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[CrossManager] [nvarchar](30) NOT NULL,
+	[MonthYear] [smalldatetime] NOT NULL,
+	[Note] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ToMonth] [smalldatetime] NULL,
+ CONSTRAINT [PK_HR_CriteriaCrossRate] PRIMARY KEY CLUSTERED 
+(
+	[CrossManager] ASC,
+	[EmployeeATID] ASC,
+	[MonthYear] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[MonthYear] [smalldatetime] NOT NULL,
+	[RatingEmployeeATID] [nvarchar](30) NOT NULL,
+	[CriteriaIndex] [int] NOT NULL,
+	[LevelRating] [smallint] NOT NULL,
+	[Rating] [float] NULL,
+	[Comment] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_CriteriaRatingResult] PRIMARY KEY CLUSTERED 
+(
+	[CriteriaIndex] ASC,
+	[EmployeeATID] ASC,
+	[LevelRating] ASC,
+	[MonthYear] ASC,
+	[RatingEmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[GroupUser] [nvarchar](max) NULL,
+	[User] [nvarchar](max) NULL,
+	[Charts] [nvarchar](max) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+	[Bar] [nvarchar](max) NULL,
+	[Order] [int] NULL,
+ CONSTRAINT [PK_HR_DashboardV2] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[PortalSystemFeature] [nvarchar](100) NOT NULL,
+	[Department] [bigint] NOT NULL,
+	[Privilege] [smallint] NULL,
+	[Helper] [nvarchar](10) NULL,
+	[Level1] [nvarchar](10) NULL,
+	[Level2] [nvarchar](10) NULL,
+	[Level3] [nvarchar](10) NULL,
+	[Level4] [nvarchar](10) NULL,
+	[Level5] [nvarchar](10) NULL,
+	[CCEmail] [nvarchar](50) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[DepartmentIndex] [nvarchar](10) NULL,
+ CONSTRAINT [PK_HR_DefaultSystemWithDepartmentAndPortalFeature] PRIMARY KEY CLUSTERED 
+(
+	[Department] ASC,
+	[PortalSystemFeature] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](400) NULL,
+	[NameInEng] [nvarchar](400) NULL,
+	[Code] [nvarchar](100) NULL,
+	[ParentIndex] [bigint] NULL,
+	[CompanyID] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[WorkingDays] [float] NULL,
+	[WorkingHours] [float] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Location] [nvarchar](300) NULL,
+	[PhoneNumber] [nvarchar](20) NULL,
+	[Note] [nvarchar](300) NULL,
+	[ContactEmail] [nvarchar](100) NULL,
+	[DateOfCreation] [smalldatetime] NULL,
+	[OrderCode] [nvarchar](50) NULL,
+	[BranchOfficeIndex] [int] NULL,
+	[SubordinateIndex] [int] NULL,
+	[IsDepartmentOfTeacher] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_Department] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](100) NULL,
+	[NameInEng] [nvarchar](100) NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ExpiredMonth] [float] NULL,
+	[Infinite] [bit] NULL,
+	[DisplayOrder] [int] NULL,
+ CONSTRAINT [PK_HR_Diploma] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](100) NULL,
+	[Description] [nvarchar](500) NULL,
+	[CityIndex] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](30) NULL,
+ CONSTRAINT [PK_HR_District] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[CreatedDate] [datetime] NULL,
+	[AppliedDate] [datetime] NULL,
+	[ContractValue] [money] NULL,
+	[ContractType] [nvarchar](30) NULL,
+	[ContractNumber] [nvarchar](100) NULL,
+	[AutoExtend] [bit] NULL,
+	[Negotiation] [bit] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Status] [nvarchar](50) NULL,
+	[ReportId] [nvarchar](max) NULL,
+	[ReportUrl] [nvarchar](max) NULL,
+	[contractId] [nvarchar](max) NULL,
+	[email] [nvarchar](max) NULL,
+	[idUser] [nvarchar](max) NULL,
+	[userType] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EContractIndex] [int] NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[SignMethod] [nvarchar](30) NULL,
+	[SignOrder] [int] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EContractEmployee] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EContractIndex] [int] NOT NULL,
+	[Email] [nvarchar](100) NOT NULL,
+	[AuthMethod] [nvarchar](30) NULL,
+	[SignMethod] [nvarchar](30) NULL,
+	[SignOrder] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[IsDefault] [bit] NULL,
+	[Name] [nvarchar](300) NULL,
+	[Type] [nvarchar](30) NULL,
+	[Internal] [bit] NULL,
+ CONSTRAINT [PK_HR_EContractParty] PRIMARY KEY CLUSTERED 
+(
+	[CompanyIndex] ASC,
+	[EContractIndex] ASC,
+	[Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[DisplayOrder] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Education] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[DisplayOrder] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EducationLevel] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EmployeeCode] [nvarchar](50) NULL,
+	[CardNumber] [nvarchar](50) NULL,
+	[LastName] [nvarchar](100) NULL,
+	[MidName] [nvarchar](150) NULL,
+	[FirstName] [nvarchar](100) NULL,
+	[NickName] [nvarchar](200) NULL,
+	[Gender] [bit] NULL,
+	[JoinedDate] [datetime] NULL,
+	[DayOfBirth] [smallint] NULL,
+	[MonthOfBirth] [smallint] NULL,
+	[YearOfBirth] [smallint] NULL,
+	[PlaceOfBirth] [nvarchar](200) NULL,
+	[Ethnic] [int] NULL,
+	[Religion] [int] NULL,
+	[Nationality] [int] NULL,
+	[HouseHold] [int] NULL,
+	[NativeCity] [nvarchar](200) NULL,
+	[NRIC] [nvarchar](50) NULL,
+	[DateOfNRIC] [datetime] NULL,
+	[PlaceOfNRIC] [nvarchar](200) NULL,
+	[EmployeeKind] [int] NULL,
+	[EducationIndex] [int] NULL,
+	[EducationLevel] [nvarchar](100) NULL,
+	[MaritalSatus] [smallint] NULL,
+	[TaxNumber] [nvarchar](50) NULL,
+	[Active] [bit] NULL,
+	[MarkForDelete] [bit] NULL,
+	[MaritalDate] [smalldatetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[WorkingDate] [datetime] NULL,
+	[UnionJoinedDate] [smalldatetime] NULL,
+	[NativeCityIndex] [int] NULL,
+	[NativeCity_District] [nvarchar](100) NULL,
+	[SocialInsNo] [nvarchar](30) NULL,
+	[NativeCity_Wards] [nvarchar](100) NULL,
+	[NativeCity_DistrictIndex] [int] NULL,
+	[NativeCity_WardIndex] [int] NULL,
+	[NativeCity_City] [nvarchar](100) NULL,
+	[NativeCity_No] [nvarchar](100) NULL,
+	[NativeCity_Street] [nvarchar](100) NULL,
+	[EmergencyAddressPerson] [nvarchar](200) NULL,
+	[EmergencyRelationShipIndex] [int] NULL,
+	[EducationLevelIndex] [int] NULL,
+	[CitizenIdentification] [nvarchar](max) NULL,
+	[CitizenIdentificationPlaceIndex] [int] NULL,
+	[DateOfCitizenIdentification] [datetime2](7) NULL,
+	[DateOfPassport] [datetime2](7) NULL,
+	[IdentityCardPlaceIndex] [int] NULL,
+	[Passport] [nvarchar](max) NULL,
+	[PassportPlaceIndex] [int] NULL,
+	[LocationIndex] [int] NULL,
+	[ExpiredDateOfCitizenIdentification] [datetime2](7) NULL,
+	[ExpiredDateOfPassport] [datetime2](7) NULL,
+	[FileAttachments] [nvarchar](max) NULL,
+	[NativeCity_Address] [nvarchar](max) NULL,
+	[UnSignFullName] [nvarchar](max) NULL,
+	[FieldConfig6] [nvarchar](200) NOT NULL,
+	[FieldConfig1] [nvarchar](200) NULL,
+	[FieldConfig2] [nvarchar](200) NULL,
+	[FieldConfig3] [nvarchar](200) NULL,
+	[FieldConfig4] [nvarchar](200) NULL,
+	[FieldConfig5] [nvarchar](200) NULL,
+	[PoliticalLevelIndex] [int] NULL,
+	[FieldConfig7] [nvarchar](max) NULL,
+	[FieldConfig8] [nvarchar](max) NULL,
+	[Image] [nvarchar](max) NULL,
+	[TeacherQualificationIndex] [int] NULL,
+	[VisaExpirationDate] [datetime2](7) NULL,
+	[VisaIssuanceDate] [datetime2](7) NULL,
+	[VisaNumber] [nvarchar](20) NULL,
+ CONSTRAINT [PK_HR_Employee] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EdittedDate] [smalldatetime] NOT NULL,
+	[EP_IN] [nvarchar](200) NULL,
+	[C1] [nvarchar](200) NULL,
+	[C2] [nvarchar](200) NULL,
+	[C3] [nvarchar](200) NULL,
+	[Logistic] [nvarchar](200) NULL,
+	[V_E] [nvarchar](200) NULL,
+	[MOP] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[EP_SF_No] [nvarchar](200) NULL,
+	[LCT] [nvarchar](200) NULL,
+	[Job_Grade] [nvarchar](200) NULL,
+	[Dir_Indir] [nvarchar](200) NULL,
+	[ToDate] [smalldatetime] NULL,
+ CONSTRAINT [PK_HR_Employee_ExtendedInfo_Lazada] PRIMARY KEY CLUSTERED 
+(
+	[EdittedDate] ASC,
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[AccountNumber] [nvarchar](100) NULL,
+	[BranchName] [nvarchar](200) NULL,
+	[MainAccount] [bit] NULL,
+	[Inheritance] [nvarchar](200) NULL,
+	[DateOfIssue] [datetime] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Description] [nvarchar](500) NULL,
+	[BankIndex] [bigint] NOT NULL,
+	[BankName] [nvarchar](200) NULL,
+	[Note] [nvarchar](500) NULL,
+	[DisplayName] [nvarchar](200) NULL,
+ CONSTRAINT [PK_HR_EmployeeAccount] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EdittedDate] [datetime] NOT NULL,
+	[Behavior] [nvarchar](200) NULL,
+	[Habit] [nvarchar](200) NULL,
+	[Interests] [nvarchar](200) NULL,
+	[DISC] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[HRRating] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_EmployeeBehavior] PRIMARY KEY CLUSTERED 
+(
+	[EdittedDate] ASC,
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeBlackList] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[FromDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EducationIndex] [int] NULL,
+	[Major] [nvarchar](50) NULL,
+	[GraduatedLevel] [nvarchar](100) NULL,
+	[MainCertificate] [bit] NULL,
+	[DateOfIssue] [datetime] NULL,
+	[PlaceOfIssue] [nvarchar](200) NULL,
+	[ValidToDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[NumberOfDocument] [nvarchar](100) NULL,
+	[AttachedFile] [ntext] NULL,
+	[CertificateTypeIndex] [int] NULL,
+	[SchoolIndex] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeCertificate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[CompensationDate] [smalldatetime] NOT NULL,
+	[Note] [nvarchar](300) NULL,
+	[CompensationMoney] [money] NULL,
+	[Paid] [bit] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeCompensation] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Time] [smalldatetime] NULL,
+	[ComplaintTypeIndex] [int] NULL,
+	[Note] [nvarchar](400) NULL,
+	[ReporterATID] [nvarchar](30) NOT NULL,
+	[Rating] [smallint] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeComplaint] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[PermamentAddress] [nvarchar](200) NULL,
+	[TemporaryAddress] [nvarchar](200) NULL,
+	[HomePhone] [nvarchar](50) NULL,
+	[MobilePhone] [nvarchar](50) NULL,
+	[Email] [nvarchar](200) NULL,
+	[YahooMessenger] [nvarchar](50) NULL,
+	[Skype] [nvarchar](50) NULL,
+	[Website] [nvarchar](50) NULL,
+	[Fax] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[EmergencyContactPerson] [nvarchar](300) NULL,
+	[EmergencyContactPersonMobile] [nvarchar](300) NULL,
+	[Address_WardIndex] [int] NULL,
+	[Address_DistrictIndex] [int] NULL,
+	[Address_CityIndex] [int] NULL,
+	[Address_Ward] [nvarchar](100) NULL,
+	[Address_District] [nvarchar](100) NULL,
+	[Address_City] [nvarchar](100) NULL,
+	[Address_No] [nvarchar](100) NULL,
+	[Address_Street] [nvarchar](200) NULL,
+	[Presenter] [nvarchar](30) NULL,
+	[EmergencyContactPerson2] [nvarchar](300) NULL,
+	[EmergencyContactPersonMobile2] [nvarchar](300) NULL,
+	[PersonalEmail] [nvarchar](max) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[PermamentAddress_Address] [nvarchar](max) NULL,
+	[PermamentAddress_CityIndex] [int] NULL,
+	[PermamentAddress_DistrictIndex] [int] NULL,
+	[PermamentAddress_WardIndex] [int] NULL,
+	[TemporaryAddress_Address] [nvarchar](max) NULL,
+	[TemporaryAddress_CityIndex] [int] NULL,
+	[TemporaryAddress_DistrictIndex] [int] NULL,
+	[TemporaryAddress_WardIndex] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeContactInfo] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[DiplomaIndex] [int] NOT NULL,
+	[IssuedDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[DiplomaType] [int] NULL,
+	[TrainedDate] [smalldatetime] NULL,
+	[TrainedShift] [int] NULL,
+	[Trainer] [nvarchar](30) NULL,
+	[TotalDays] [float] NULL,
+	[Mark] [float] NULL,
+	[Rating] [smallint] NULL,
+	[RatingIndex] [int] NULL,
+	[Content] [ntext] NULL,
+	[Fee] [money] NULL,
+	[IssuePlace] [nvarchar](500) NULL,
+	[OutsiteTrainer] [nvarchar](300) NULL,
+	[TrainingToDate] [smalldatetime] NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[DocumentCode] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeDiploma] PRIMARY KEY CLUSTERED 
+(
+	[DiplomaIndex] ASC,
+	[EmployeeATID] ASC,
+	[IssuedDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Date] [smalldatetime] NOT NULL,
+	[EventIndex] [int] NOT NULL,
+	[Fee] [money] NULL,
+	[Note] [nvarchar](100) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Suggest] [bit] NULL,
+	[PT_EventIndex] [bigint] NULL,
+	[Quantity] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeEvents] PRIMARY KEY CLUSTERED 
+(
+	[Date] ASC,
+	[EmployeeATID] ASC,
+	[EventIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[ExaminationIndex] [int] NOT NULL,
+	[Date] [smalldatetime] NOT NULL,
+	[Mark] [nvarchar](5) NULL,
+	[Result] [nvarchar](50) NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_EmployeeExaminationResult] PRIMARY KEY CLUSTERED 
+(
+	[Date] ASC,
+	[EmployeeATID] ASC,
+	[ExaminationIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Info1] [nvarchar](500) NULL,
+	[Info2] [nvarchar](500) NULL,
+	[Info3] [nvarchar](500) NULL,
+	[Info4] [nvarchar](500) NULL,
+	[Info5] [nvarchar](500) NULL,
+	[Info6] [nvarchar](500) NULL,
+	[Info7] [nvarchar](500) NULL,
+	[Info8] [nvarchar](500) NULL,
+	[Info9] [nvarchar](500) NULL,
+	[Info10] [nvarchar](500) NULL,
+	[Info11] [nvarchar](500) NULL,
+	[Info12] [nvarchar](500) NULL,
+	[Info13] [nvarchar](500) NULL,
+	[Info14] [nvarchar](500) NULL,
+	[Info15] [nvarchar](500) NULL,
+	[Info16] [nvarchar](500) NULL,
+	[Info17] [nvarchar](500) NULL,
+	[Info18] [nvarchar](500) NULL,
+	[Info19] [nvarchar](500) NULL,
+	[Info20] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeExtendedInfo] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FamilyRelationshipTypeIndex] [int] NULL,
+	[FullName] [nvarchar](200) NULL,
+	[Gender] [bit] NULL,
+	[NRIC] [varchar](50) NULL,
+	[DayOfBirth] [smallint] NULL,
+	[MonthOfBirth] [smallint] NULL,
+	[YearOfBirth] [smallint] NULL,
+	[HomePhone] [nvarchar](50) NULL,
+	[MobilePhone] [nvarchar](50) NULL,
+	[Address] [nvarchar](200) NULL,
+	[Career] [nvarchar](50) NULL,
+	[WorkingPlace] [nvarchar](200) NULL,
+	[Description] [nvarchar](200) NULL,
+	[Alive] [bit] NULL,
+	[DependedOn] [bit] NULL,
+	[DependedFrom] [datetime] NULL,
+	[DependedTo] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[TaxNumber] [nvarchar](50) NULL,
+	[NumberInDocumentOfBirth] [nvarchar](50) NULL,
+	[NumberOfDocumentOfBirth] [nvarchar](50) NULL,
+	[PlaceOfBirth] [nvarchar](200) NULL,
+	[DateOfNRIC] [datetime] NULL,
+	[PlaceOfNRIC] [nvarchar](200) NULL,
+	[HeadOfHouseHold] [bit] NULL,
+	[NativeCity_DistrictIndex] [int] NULL,
+	[NativeCity_WardIndex] [int] NULL,
+	[NativeCity_CityIndex] [int] NULL,
+	[VNPT_DocumentTypeIndex] [int] NULL,
+	[VNPT_DocumentNumber] [nvarchar](50) NULL,
+	[NativeCity_NationalityIndex] [int] NULL,
+	[CoEmployeeATID] [nvarchar](30) NULL,
+	[DeathDate] [smalldatetime] NULL,
+	[SocialInsuranceCode] [nvarchar](50) NULL,
+	[HeadOfHouseHoldRelationshipTypeIndex] [int] NULL,
+	[HouseHoldNumber] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[FieldConfig1] [nvarchar](200) NULL,
+	[FieldConfig2] [nvarchar](200) NULL,
+	[FieldConfig3] [nvarchar](200) NULL,
+	[FieldConfig4] [nvarchar](200) NULL,
+	[FieldConfig5] [nvarchar](200) NULL,
+	[FieldConfig6] [nvarchar](200) NULL,
+	[FieldConfig7] [nvarchar](max) NULL,
+	[FieldConfig8] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeeFamilyInfo] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FileName] [nvarchar](200) NULL,
+	[FilePath] [ntext] NULL,
+	[AppliedDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[SignedDate] [smalldatetime] NULL,
+	[SignedPeople] [nvarchar](200) NULL,
+	[Note] [nvarchar](400) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[TypeOfFileIndex] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeFile] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[DateOfIssue] [smalldatetime] NULL,
+	[PlaceOfIssue] [nvarchar](200) NULL,
+	[ValidToDate] [smalldatetime] NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeeFireProtectionCertificate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[TypeOfCard] [int] NOT NULL,
+	[Place] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](max) NULL,
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeeFoodSafety] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[LanguageIndex] [int] NOT NULL,
+	[Listen] [smallint] NULL,
+	[Speak] [smallint] NULL,
+	[Read] [smallint] NULL,
+	[Write] [smallint] NULL,
+	[EdittedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](300) NULL,
+ CONSTRAINT [PK_HR_EmployeeForeignLanguage] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[FunctionIndex] [int] NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeFunction] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[TypeOfCard] [int] NOT NULL,
+	[HospitalPlace] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](max) NULL,
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_HR_EmployeeHealthCard] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EdittedDate] [smalldatetime] NOT NULL,
+	[Type] [nvarchar](50) NULL,
+	[Note] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[TypeOfBlood] [nvarchar](10) NULL,
+	[Height] [float] NULL,
+	[Weight] [float] NULL,
+ CONSTRAINT [PK_HR_EmployeeHealthInfo] PRIMARY KEY CLUSTERED 
+(
+	[EdittedDate] ASC,
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[SupportedDate] [smalldatetime] NOT NULL,
+	[FinishedDate] [smalldatetime] NULL,
+	[SupportedMoney] [money] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeHouse] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[SupportedDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[ApproverGroupIndex] [int] NOT NULL,
+	[FromDate] [date] NOT NULL,
+	[ToDate] [date] NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeInApproverGroup] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[ApproverGroupIndex] ASC,
+	[FromDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[ChangedDate] [smalldatetime] NULL,
+	[NRIC] [nvarchar](50) NULL,
+	[DateOfNRIC] [smalldatetime] NULL,
+	[PlaceOfNRIC] [nvarchar](200) NULL,
+	[PermamentAddress] [nvarchar](200) NULL,
+	[TemporaryAddress] [nvarchar](200) NULL,
+	[TaxNumber] [nvarchar](50) NULL,
+	[SocialInsNo] [nvarchar](30) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeInfoHistory] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Date] [smalldatetime] NULL,
+	[InsurancePaymentTypeIndex] [int] NULL,
+	[Money] [money] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeInsurancePayment] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[AppliedDate] [smalldatetime] NOT NULL,
+	[KPITypeIndex] [int] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[KPI] [real] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_EmployeeKPI] PRIMARY KEY CLUSTERED 
+(
+	[AppliedDate] ASC,
+	[EmployeeATID] ASC,
+	[KPITypeIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Number] [nvarchar](50) NULL,
+	[DateOfIssue] [datetime] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[Description] [nvarchar](200) NULL,
+	[TypeOfLaborPermit] [smallint] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Nationality] [int] NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[TypeOfResidence] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeLaborPermit] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromMonth] [smalldatetime] NOT NULL,
+	[ToMonth] [smalldatetime] NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeNoAutoSendMail] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[FromMonth] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[OptionalText1] [nvarchar](200) NULL,
+	[OptionalText2] [nvarchar](200) NULL,
+	[OptionalText3] [nvarchar](200) NULL,
+	[OptionalNumber1] [float] NULL,
+	[OptionalNumber2] [float] NULL,
+	[OptionalNumber3] [float] NULL,
+	[OptionalDateTime1] [datetime] NULL,
+	[OptionalDateTime2] [datetime] NULL,
+	[OptionalDateTime3] [datetime] NULL,
+	[OptionalCatalog1] [int] NULL,
+	[OptionalCatalog2] [int] NULL,
+	[OptionalCatalog3] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeOptionalInfo] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[PartyNumber] [varchar](20) NULL,
+	[JoinedDate] [smalldatetime] NULL,
+	[PartyPlace] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_EmployeePartyInfo] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[FromDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[Year] [int] NULL,
+	[Month] [datetime] NULL,
+	[Number] [int] NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeePlanning] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[MonthYear] [datetime] NULL,
+	[Number] [int] NULL,
+	[LaborContractTypeIndex] [int] NULL,
+	[EstimatedWorkingHours] [real] NULL,
+	[EstimatedSalary] [money] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeePlanningByTitles] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[Year] [int] NULL,
+	[Month] [datetime] NULL,
+	[NumberOfPlanning] [int] NULL,
+	[NumberOfCurrent] [int] NULL,
+	[NumberOfNewEmployee] [int] NULL,
+	[NumberOfTransferEmployee] [int] NULL,
+	[NumberOfRemaining] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeePlanningByTitlesStatistic] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[Year] [int] NULL,
+	[Month] [datetime] NULL,
+	[NumberOfPlanning] [int] NULL,
+	[NumberOfCurrent] [int] NULL,
+	[NumberOfNewEmployee] [int] NULL,
+	[NumberOfTransferEmployee] [int] NULL,
+	[NumberOfRemaining] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeePlanningStatistic] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](200) NULL,
+	[Name] [nvarchar](500) NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[PositionIndex] [bigint] NULL,
+	[WorkingLevelIndex] [int] NULL,
+	[KindOfEmployeeIndex] [int] NULL,
+	[Editable] [bit] NOT NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[PT_AdvanceAccount] [bit] NOT NULL,
+	[HR_LaborContract] [bit] NOT NULL,
+	[HR_LocationForEmployee] [bit] NOT NULL,
+	[PT_Account] [bit] NOT NULL,
+	[HR_LaborContract_Data] [nvarchar](max) NULL,
+	[HR_LocationForEmployee_Data] [nvarchar](max) NULL,
+	[PT_Account_Data] [nvarchar](max) NULL,
+	[PT_AdvanceAccount_Data] [nvarchar](max) NULL,
+	[TA_EmployeeLeaveYear] [bit] NOT NULL,
+	[TA_EmployeeLeaveYear_Data] [nvarchar](max) NULL,
+	[TA_EmployeeShift] [bit] NOT NULL,
+	[TA_EmployeeShift_Data] [nvarchar](max) NULL,
+	[PR_SalaryInfo] [bit] NOT NULL,
+	[PR_SalaryInfo_Data] [nvarchar](max) NULL,
+	[PT_MobileAccount] [bit] NOT NULL,
+	[PT_MobileAccount_Data] [nvarchar](max) NULL,
+	[PR_Pension] [bit] NOT NULL,
+	[PR_Pension_Data] [nvarchar](max) NULL,
+	[PR_Allowance] [bit] NOT NULL,
+	[PR_Allowance_Data] [nvarchar](max) NULL,
+	[PR_Bonus] [bit] NOT NULL,
+	[PR_Bonus_Data] [nvarchar](max) NULL,
+	[PR_Deduct] [bit] NOT NULL,
+	[PR_Deduct_Data] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeePolicy] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[RatingDate] [smalldatetime] NOT NULL,
+	[RatingIndex] [int] NULL,
+	[Money] [money] NULL,
+	[Note] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Mark] [decimal](18, 4) NULL,
+	[DirectorMark] [decimal](18, 4) NULL,
+	[DirectorRatingIndex] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeRating] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[RatingDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Year] [int] NOT NULL,
+	[FromDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Mark] [decimal](18, 4) NULL,
+	[RatingResult] [nvarchar](200) NULL,
+	[RatingResultCode] [nvarchar](50) NULL,
+	[Note] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[DirectorMark] [decimal](18, 4) NULL,
+ CONSTRAINT [PK_HR_EmployeeRatingYearly] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[Year] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[SkillIndex] [int] NOT NULL,
+	[EdittedDate] [smalldatetime] NULL,
+	[Note] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Mark] [real] NULL,
+ CONSTRAINT [PK_HR_EmployeeSkill] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[SkillIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[StartedDate] [datetime] NULL,
+	[ReturnedDate] [datetime] NULL,
+	[StoppedReasonIndex] [int] NULL,
+	[ReturnHealthInsCard] [datetime] NULL,
+	[ReturnSocialInsCard] [datetime] NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[NumberOfDoc] [nvarchar](100) NULL,
+	[SignedDate] [smalldatetime] NULL,
+	[ViewedInSystemToDate] [smalldatetime] NULL,
+	[ApplymentDate] [smalldatetime] NULL,
+	[SignedPersion] [nvarchar](50) NULL,
+	[AttachedFile] [ntext] NULL,
+	[SynchErrorDevices] [ntext] NULL,
+	[ApprovedEmployeeATID] [nvarchar](30) NULL,
+	[ApprovedDate] [smalldatetime] NULL,
+	[Synched] [smallint] NULL,
+	[SalaryDetained] [bit] NOT NULL,
+	[InBlackList] [bit] NOT NULL,
+	[InBlackListReason] [nvarchar](500) NULL,
+	[IsHandoverAsset] [bit] NOT NULL,
+	[HandoverDate] [datetime2](7) NULL,
+	[HandoverDetail] [nvarchar](500) NULL,
+	[Receiver] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeeStoppedWorkingInfo] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeStoppedWorkingInfoIndex] [bigint] NOT NULL,
+	[TypeOfQuitJobIndex] [int] NOT NULL,
+	[NotificationDate] [datetime2](7) NULL,
+	[HrNotificationDate] [datetime2](7) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](50) NULL,
+	[CreatedDate] [datetime2](7) NOT NULL,
+	[CreatedUser] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_EmployeeStoppedWorkingInfo_TypeOfQuitJob] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[SystemIndex] [bigint] NULL,
+	[AccountName] [nvarchar](100) NULL,
+	[Password] [varchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Helper] [nvarchar](30) NULL,
+	[ResetPasswordCode] [datetime] NULL,
+	[Level1] [nvarchar](30) NULL,
+	[Level2] [nvarchar](30) NULL,
+	[Level3] [nvarchar](30) NULL,
+	[Level4] [nvarchar](30) NULL,
+	[Level5] [nvarchar](30) NULL,
+	[Active] [bit] NULL,
+	[HRPro7Portal] [smallint] NULL,
+	[TrainingPortal] [smallint] NULL,
+	[EvaluationPortal] [smallint] NULL,
+	[PleasureEstimatingPortal] [smallint] NULL,
+	[EclaimPortal] [smallint] NULL,
+	[RecruitmentPortal] [smallint] NULL,
+	[SystemGroup] [int] NULL,
+ CONSTRAINT [PK_HR_EmployeeSystem] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeSystemGroup] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[SystemGroup] [int] NOT NULL,
+	[PortalSystemFeature] [nvarchar](100) NOT NULL,
+	[Privilege] [smallint] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_EmployeeSystemGroupDetail] PRIMARY KEY CLUSTERED 
+(
+	[PortalSystemFeature] ASC,
+	[SystemGroup] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[PortalSystemFeature] [nvarchar](100) NOT NULL,
+	[Helper] [nvarchar](10) NULL,
+	[Level1] [nvarchar](10) NULL,
+	[Level2] [nvarchar](10) NULL,
+	[Level3] [nvarchar](10) NULL,
+	[Level4] [nvarchar](10) NULL,
+	[Level5] [nvarchar](10) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CCEmail] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_EmployeeSystemWithPortalFeature] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[PortalSystemFeature] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[UnionNumber] [varchar](20) NULL,
+	[JoinedDate] [smalldatetime] NULL,
+	[UnionPlace] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_EmployeeUnionInfo] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[FromDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Company] [nvarchar](100) NULL,
+	[Position] [nvarchar](100) NULL,
+	[JobDescription] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[Salary] [money] NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[ReferPerson] [nvarchar](200) NULL,
+	[ReferPosition] [nvarchar](100) NULL,
+	[ReferTel] [nvarchar](50) NULL,
+	[ReferEmail] [nvarchar](100) NULL,
+	[ReferContacted] [bit] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[OtherInfo] [nvarchar](500) NULL,
+	[IsStoppedWorking] [bit] NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_EmployeeWorkingExperience] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[EquipmentID] [nvarchar](50) NOT NULL,
+	[EquipmentType] [nvarchar](200) NULL,
+	[Unit] [nvarchar](100) NULL,
+	[Number] [real] NULL,
+	[InUse] [bit] NULL,
+	[Status] [nvarchar](100) NULL,
+	[Reason] [nvarchar](300) NULL,
+	[Solution] [nvarchar](300) NULL,
+	[AllocatedDate] [smalldatetime] NULL,
+	[DueDate] [smalldatetime] NULL,
+	[MoreDescription] [nvarchar](500) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[NumberOfDocument] [nvarchar](100) NULL,
+	[AttachedFile] [ntext] NULL,
+ CONSTRAINT [PK_HR_EquipmentAllocation] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[EquipmentID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](30) NULL,
+ CONSTRAINT [PK_HR_Ethnic] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NamInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[Active] [bit] NULL,
+	[Fee] [money] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Events] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](100) NULL,
+	[NameInEng] [nvarchar](100) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_Examination] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](200) NULL,
+	[DisplayOrder] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ParentNode] [int] NULL,
+	[MotherNode] [int] NULL,
+	[SpouseNode] [int] NULL,
+	[IsChild] [bit] NULL,
+	[IsSpouse] [bit] NULL,
+	[IsFather] [bit] NULL,
+	[IsMother] [bit] NULL,
+	[Code] [nvarchar](50) NULL,
+ CONSTRAINT [PK_HR_FamilyRelationshipType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[Date] [datetime2](7) NULL,
+	[FeedbackTypeIndex] [int] NULL,
+	[Content] [nvarchar](max) NULL,
+	[Suggest] [nvarchar](max) NULL,
+	[FilePath] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+	[LastResponder] [smallint] NOT NULL,
+ CONSTRAINT [PK_HR_Feedback] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[FeedbackIndex] [int] NULL,
+	[CCEmail] [nvarchar](max) NULL,
+	[Note] [nvarchar](500) NULL,
+	[DeadlineDate] [datetime] NULL,
+	[EndDate] [datetime] NULL,
+	[Priority] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_FeedbackNote] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[FeedbackIndex] [int] NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[Content] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_FeedBackResponseHistory] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](200) NULL,
+	[Screen] [nvarchar](max) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_FeedbackType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](100) NULL,
+	[NameEng] [nvarchar](100) NULL,
+	[Active] [bit] NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UPdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Functions] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[GroupName] [nvarchar](100) NULL,
+	[IsActive] [bit] NOT NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_HR_GroupUser] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[HealthInsuaraceID] [nvarchar](50) NULL,
+	[PlaceOfIssue] [nvarchar](200) NULL,
+	[DateOfIssue] [datetime] NULL,
+	[RegisteredHospital] [int] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_HealthInsurance] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[UserName] [nvarchar](max) NULL,
+	[Operation] [nvarchar](max) NULL,
+	[Environment] [nvarchar](max) NULL,
+	[ImplementationDate] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_HR_HistoryUserLog] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[CityIndex] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Address] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_HospitalPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](500) NULL,
+	[TypeOfHumanResourcePolicy] [int] NULL,
+	[MarkFomular] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_HumanResourcePolicy] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_IdentityCardPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_InsurancePaymentType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_InterviewPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_InvisibleinReport] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[FromDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[JobTypeIndex ] [int] NULL,
+	[ManagerATID ] [nvarchar](30) NULL,
+	[FromDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_JobManager] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Address] [nvarchar](500) NULL,
+	[AllowanceTypes] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_JobType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[TeachingManagement] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_KindOfEmployee] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[GroupUserIndex] [int] NOT NULL,
+	[KindOfEmployeeIndex] [int] NOT NULL,
+	[CreatedBy] [nvarchar](50) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedUser] [nvarchar](50) NULL,
+	[UpdatedDate] [datetime] NULL,
+ CONSTRAINT [PK_HR_KindOfEmployeePermission] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[WageGroupIndex] [int] NULL,
+	[WageLevelIndex] [int] NULL,
+	[MinKPI] [decimal](18, 3) NULL,
+	[MaxKPI] [decimal](18, 3) NULL,
+	[Percentage] [real] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_KPIRate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](400) NULL,
+	[NameInEng] [nvarchar](400) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_KPIType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[LaborContractID] [nvarchar](50) NULL,
+	[SignedDate] [datetime] NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[Description] [nvarchar](500) NULL,
+	[Payment] [nvarchar](100) NULL,
+	[LaborContractTypeIndex] [int] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[WorkingDescription] [nvarchar](max) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[WithoutPersonalIncomeTax] [bit] NOT NULL,
+	[WorkingLocation] [nvarchar](300) NULL,
+	[SignedPerson] [nvarchar](100) NULL,
+	[SignedPersonOutSystem] [nvarchar](100) NULL,
+	[ResignRequested] [bit] NULL,
+	[IsIncludeProbationPeriod] [bit] NOT NULL,
+	[IsJoinHealthInsurance] [bit] NOT NULL,
+	[IsJoinSocialInsurance] [bit] NOT NULL,
+	[IsJoinTax] [bit] NOT NULL,
+	[IsJoinUnemployeeInsurance] [bit] NOT NULL,
+	[IsJoinUnion] [bit] NOT NULL,
+	[IsThirteenthMonthlySalary] [bit] NOT NULL,
+	[ProbationaryEndDate] [datetime] NULL,
+	[AgreementBonus] [bit] NOT NULL,
+	[CommitSaleMonth] [real] NOT NULL,
+	[CommitSaleQuarterly] [real] NOT NULL,
+	[CommitSaleYear] [real] NOT NULL,
+	[MommissionRateMonth] [real] NOT NULL,
+	[MommissionRateQuarterly] [real] NOT NULL,
+	[MommissionRateYear] [real] NOT NULL,
+	[PercentageMonth] [real] NOT NULL,
+	[PercentageQuarterly] [real] NOT NULL,
+	[PercentageYear] [real] NOT NULL,
+	[TaxPercent] [int] NOT NULL,
+	[LocationContractIndex] [int] NULL,
+	[IsTerminationAheadOfTime] [bit] NOT NULL,
+	[OldToDate] [datetime] NULL,
+ CONSTRAINT [PK_HR_LaborContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[LaborContractIndex] [int] NULL,
+	[SubordinateIndex] [int] NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_LaborContract_Subordinate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[JoinedHealthIns] [bit] NULL,
+	[JoinedUnempIns] [bit] NULL,
+	[JoinedSocialIns] [bit] NULL,
+	[ExpiredMonth] [float] NULL,
+	[SalaryPercent] [float] NULL,
+	[JoinedTax] [bit] NULL,
+	[JoinedUnion] [bit] NULL,
+	[ThirteenthMonth] [bit] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdateUser] [nvarchar](100) NULL,
+	[Probation] [bit] NULL,
+	[TaxPercentage] [float] NULL,
+	[ExpiredDay] [float] NULL,
+	[NoPaymentContract] [bit] NOT NULL,
+	[ReportTemplate] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_LaborContractType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Language] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[NumberOfDocument] [nvarchar](50) NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[Title] [nvarchar](200) NULL,
+	[FromDate] [datetime2](7) NULL,
+	[ToDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_HR_LegalRecord] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[GroupUser] [nvarchar](max) NULL,
+	[User] [nvarchar](max) NULL,
+	[Url] [nvarchar](max) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+	[Order] [int] NULL,
+ CONSTRAINT [PK_HR_Library] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Title] [nvarchar](300) NULL,
+	[Longitude] [float] NULL,
+	[Latitude] [float] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Address] [nvarchar](500) NULL,
+	[Note] [nvarchar](500) NULL,
+	[Radius] [real] NULL,
+	[RouterWifi] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Location] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[LocationName] [nvarchar](500) NULL,
+	[City] [int] NOT NULL,
+	[District] [int] NOT NULL,
+	[Ward] [int] NOT NULL,
+	[Address] [nvarchar](500) NULL,
+	[CreatedDate] [smalldatetime] NOT NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_LocationContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[LocationIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AppliedFrom] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[UpdatedDate] [datetime2](7) NOT NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_LocationForDepartment] PRIMARY KEY CLUSTERED 
+(
+	[LocationIndex] ASC,
+	[DepartmentIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[LocationIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](450) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[AppliedFrom] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[UpdatedDate] [datetime2](7) NOT NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_LocationForEmployee] PRIMARY KEY CLUSTERED 
+(
+	[LocationIndex] ASC,
+	[EmployeeATID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[GroupUserIndex] [int] NOT NULL,
+	[LocationIndex] [int] NOT NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_LocationPermission] PRIMARY KEY CLUSTERED 
+(
+	[CompanyIndex] ASC,
+	[GroupUserIndex] ASC,
+	[LocationIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[TableName] [nvarchar](100) NULL,
+	[Content] [nvarchar](max) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_ManagerTemplate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_MaritalStatus] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[PregnantDate] [datetime2](7) NULL,
+	[ExpectedDateOfBirth] [datetime2](7) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+	[State] [nvarchar](max) NULL,
+	[EventPregnantInex] [bigint] NULL,
+	[EventMaternityIndex] [bigint] NULL,
+	[EventChildIndex] [bigint] NULL,
+	[RegisterToDate] [datetime2](7) NULL,
+	[BenefitType] [nvarchar](max) NULL,
+	[BornDate] [datetime2](7) NULL,
+	[NumberOfChilds] [int] NULL,
+	[RegisterFromDate] [datetime2](7) NULL,
+	[WorkingEnviroment] [nvarchar](max) NULL,
+	[EndOfMaternityDate] [datetime2](7) NULL,
+	[EventEndOfMaternityIndex] [bigint] NULL,
+	[NumberOfBaby] [int] NULL,
+	[NumberOfWeek] [int] NULL,
+ CONSTRAINT [PK_HR_Maternity] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[MaternityIndex] [int] NOT NULL,
+	[EffectiveFrom] [datetime2](7) NOT NULL,
+	[EffectiveTo] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_HR_MaternityDetail] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](max) NULL,
+	[TypeIndex] [tinyint] NOT NULL,
+	[EnvironmentIndex] [tinyint] NOT NULL,
+	[CheckinIndex] [tinyint] NOT NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_MaternityType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Reason] [nvarchar](300) NULL,
+	[Place] [nvarchar](200) NULL,
+	[MissionFee] [money] NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[SignedDate] [datetime] NULL,
+	[SignedPerson] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[EventIndex] [bigint] NULL,
+	[Suggest] [bit] NULL,
+	[MissionAllowanceGroupIndex] [int] NULL,
+	[Note] [nvarchar](200) NULL,
+	[MissionRoadIndex] [int] NULL,
+	[Address] [nvarchar](400) NULL,
+	[ContactPerson] [nvarchar](200) NULL,
+	[ContactInfo] [nvarchar](200) NULL,
+	[TransportVehicle] [nvarchar](300) NULL,
+	[MissionTypeIndex] [int] NULL,
+	[WorkPlaceIndex] [int] NULL,
+ CONSTRAINT [PK_HR_Mission] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[GroupName] [nvarchar](400) NULL,
+	[NameInEng] [nvarchar](400) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Code] [nvarchar](50) NOT NULL,
+	[MissionTypeIndex] [int] NULL,
+	[WorkPlaceIndex] [nvarchar](max) NULL,
+	[WorkingLevelIndex] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_MissionAllowanceGroup] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[GroupIndex] [int] NOT NULL,
+	[AllowaceIndex] [int] NOT NULL,
+ CONSTRAINT [PK_HR_MissionAllowanceGroupDetail] PRIMARY KEY CLUSTERED 
+(
+	[AllowaceIndex] ASC,
+	[GroupIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](200) NULL,
+	[DefaultValue] [money] NULL,
+	[InTax] [bit] NULL,
+	[CalculateSalary] [bit] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_MissionAllowanceType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[FromPlace] [nvarchar](300) NULL,
+	[ToPlace] [nvarchar](300) NULL,
+	[Distance] [float] NULL,
+	[Money] [money] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_MissionRoad] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_MissionType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[CategoryIndex] [int] NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[DepartmentIndexs] [text] NULL,
+	[CreatedDate] [datetime2](7) NULL,
+	[PublishDate] [datetime2](7) NULL,
+	[Content] [ntext] NULL,
+	[Attachments] [ntext] NULL,
+	[Status] [smallint] NULL,
+	[Author] [nvarchar](100) NULL,
+	[ExpiresIn] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_News] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_NewsCategory] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[EmployeeATID] [text] NULL,
+	[CreatedDate] [datetime2](7) NULL,
+	[PublishDate] [datetime2](7) NULL,
+	[Content] [ntext] NULL,
+	[Attachments] [ntext] NULL,
+	[Status] [smallint] NULL,
+	[Author] [nvarchar](100) NULL,
+	[ExpiresIn] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_NewsForEmployee] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[PositionIndex] [bigint] NOT NULL,
+	[LaborContractTypeIndex] [int] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[NumberOfEmps] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](500) NULL,
+	[ExpectedSalary] [money] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[ExpectedWorkingHours] [float] NULL,
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_HR_NumberOfEmpsByDepartment] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[TitlesIndex] [bigint] NOT NULL,
+	[MonthYear] [smalldatetime] NOT NULL,
+	[Note] [nvarchar](500) NULL,
+	[NumberOfEmps] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_NumberOfEmpsByTitles] PRIMARY KEY CLUSTERED 
+(
+	[TitlesIndex] ASC,
+	[MonthYear] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[ResourceName] [varchar](100) NOT NULL,
+	[VN] [nvarchar](300) NULL,
+	[EN] [nvarchar](300) NULL,
+ CONSTRAINT [PK_HR_OpenResource] PRIMARY KEY CLUSTERED 
+(
+	[ResourceName] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Optional1] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Optional2] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Optional3] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[OtherInsuraceID] [nvarchar](50) NULL,
+	[PlaceOfIssue] [nvarchar](200) NULL,
+	[DateOfIssue] [datetime] NULL,
+	[ValueInsurance] [float] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_OtherInsurance] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[StartedDate] [smalldatetime] NOT NULL,
+	[InsuranceID] [nvarchar](50) NULL,
+	[PlaceOfIssue] [nvarchar](200) NULL,
+	[StartedMoney] [money] NULL,
+	[EndedDate] [smalldatetime] NULL,
+	[EndedMoney] [money] NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CardType] [int] NULL,
+ CONSTRAINT [PK_HR_OtherInsurance_QSR] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeATID] ASC,
+	[StartedDate] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_OtherInsurance_QSR_CardType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[GroupUser] [nvarchar](max) NULL,
+	[User] [nvarchar](max) NULL,
+	[Url] [nvarchar](max) NULL,
+	[Order] [int] NULL,
+	[CreatedBy] [nvarchar](100) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NULL,
+ CONSTRAINT [PK_HR_PageDemo] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_PassportPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[NameInEng] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [smalldatetime] NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_PoliticalLevel] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NOT NULL,
+	[Link] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AutoSynchTimePos] [varchar](100) NULL,
+ CONSTRAINT [PK_HR_PortalLinks] PRIMARY KEY CLUSTERED 
+(
+	[Name] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[MaxOvertimeInYear] [float] NULL,
+	[DefaultTitlesIndex] [bigint] NULL,
+ CONSTRAINT [PK_HR_Position] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[PositionIndex] [bigint] NOT NULL,
+	[SkillIndex] [int] NOT NULL,
+	[Note] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[MinMark] [real] NULL,
+ CONSTRAINT [PK_HR_PositionSkill] PRIMARY KEY CLUSTERED 
+(
+	[PositionIndex] ASC,
+	[SkillIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[StartDate] [datetime] NULL,
+	[OffDate] [datetime] NULL,
+	[OnDate] [datetime] NULL,
+	[EndDate] [datetime] NULL,
+	[CreatedDate] [datetime] NULL,
+	[SynchedDate] [smalldatetime] NULL,
+	[ErrorMessage] [ntext] NULL,
+	[ID_Ref] [int] NOT NULL,
+ CONSTRAINT [PK_HR_Pregnancy_Sync] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](500) NULL,
+	[NameInEng] [nvarchar](500) NULL,
+	[Description] [nvarchar](500) NULL,
+	[FromDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[OfficalFromTime] [smalldatetime] NULL,
+	[OfficalToTime] [smalldatetime] NULL,
+	[NonOfficalFromTime] [smalldatetime] NULL,
+	[NonOfficalToTime] [smalldatetime] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Project] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[DefaultMoney] [money] NULL,
+	[Ordering] [smallint] NULL,
+	[ActiveTo] [smalldatetime] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[MinMark] [float] NULL,
+	[MaxMark] [float] NULL,
+ CONSTRAINT [PK_HR_Rating] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](30) NULL,
+ CONSTRAINT [PK_HR_Region] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Religion] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[FromDate] [smalldatetime] NOT NULL,
+	[ToDate] [smalldatetime] NULL,
+	[FullName] [nvarchar](300) NULL,
+	[Title] [nvarchar](300) NULL,
+	[No] [nvarchar](50) NULL,
+	[Note] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Representive] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[TitlesIndex] [bigint] NOT NULL,
+	[DiplomaIndex] [int] NOT NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_RequiredDiplomaByTitles] PRIMARY KEY CLUSTERED 
+(
+	[TitlesIndex] ASC,
+	[DiplomaIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[Reward] [smallint] NULL,
+	[AppliedDate] [smalldatetime] NULL,
+	[Reason] [ntext] NULL,
+	[Value] [money] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[RewardDisciplineType] [int] NULL,
+	[EndedDate] [smalldatetime] NULL,
+	[Note] [nvarchar](1000) NULL,
+	[SignedPerson] [nvarchar](100) NULL,
+	[SignedDate] [smalldatetime] NULL,
+	[NumberOfDocument] [nvarchar](100) NULL,
+	[AttachedFile] [ntext] NULL,
+	[Formality] [smallint] NULL,
+	[NoOfReport] [nvarchar](100) NULL,
+	[Note2] [nvarchar](1000) NULL,
+	[Reward_Discipline_LevelIndex] [int] NULL,
+	[Reward_Discipline_RuleIndex] [int] NULL,
+	[OtherType] [ntext] NULL,
+ CONSTRAINT [PK_HR_Reward_Discipline] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Reward] [smallint] NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Note] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Reward_Discipline_Level] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Reward_Discipline_Level] [int] NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Note] [ntext] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Reward_Discipline_Rule] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](1000) NULL,
+	[NameInEng] [nvarchar](1000) NULL,
+	[Note] [nvarchar](1000) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[StandardValue] [money] NULL,
+	[Reward] [smallint] NULL,
+ CONSTRAINT [PK_HR_Reward_DisciplineType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[Year] [int] NULL,
+	[Month] [datetime] NULL,
+	[Number] [decimal](18, 2) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_SalaryPlanning] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[MonthYear] [datetime] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[PositionIndex] [bigint] NULL,
+	[SampleData] [datetime] NULL,
+	[EmployeeSalary] [decimal](18, 2) NULL,
+	[Note] [nvarchar](max) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_SalaryPlanningByPosition] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_School] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[NotificationName] [nvarchar](max) NULL,
+	[Channel] [int] NOT NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [smalldatetime] NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+	[CategoryIndex] [int] NULL,
+ CONSTRAINT [PK_HR_SendNotificationMedia] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](200) NULL,
+	[ActiveTo] [smalldatetime] NULL,
+	[Reserve] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[MarkNote1] [ntext] NULL,
+	[MarkNote2] [ntext] NULL,
+	[MarkNote3] [ntext] NULL,
+	[MarkNote4] [ntext] NULL,
+	[MarkNote5] [ntext] NULL,
+	[MarkNote6] [ntext] NULL,
+	[MarkNote7] [ntext] NULL,
+	[MarkNote8] [ntext] NULL,
+	[MarkNote9] [ntext] NULL,
+	[MarkNote10] [ntext] NULL,
+ CONSTRAINT [PK_HR_Skill] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](200) NULL,
+	[Reserve] [nvarchar](200) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_SkillGroup] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[SkillIndex] [int] NOT NULL,
+	[SkillGroupIndex] [int] NOT NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_SkillInGroup] PRIMARY KEY CLUSTERED 
+(
+	[SkillGroupIndex] ASC,
+	[SkillIndex] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[SocialInsuranceID] [nvarchar](50) NULL,
+	[PlaceOfIssue] [nvarchar](500) NULL,
+	[DateOfIssue] [datetime] NULL,
+	[ExpiredDate] [datetime] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[DistrictIndex] [int] NULL,
+	[CityIndex] [int] NULL,
+	[IssuedPlaceIndex] [int] NULL,
+	[Status] [int] NULL,
+	[FillingDateByEmployee] [datetime] NULL,
+	[ReceivedDate] [datetime] NULL,
+	[ReceivedPerson] [nvarchar](300) NULL,
+	[ReturnedDateByOffical] [datetime] NULL,
+	[ReturnedForm] [nvarchar](300) NULL,
+ CONSTRAINT [PK_HR_SocialInsurance] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](500) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[NameInEng] [nvarchar](500) NULL,
+ CONSTRAINT [PK_HR_SocialInsuranceIssuePlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Status] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Reason] [nvarchar](200) NULL,
+	[ReasonInEng] [nvarchar](200) NULL,
+	[ContinueJoinIns] [bit] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Voluntary] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_StoppedReason] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[StoppedReatonIndex] [int] NULL,
+	[TypeOfQuitJobIndex] [int] NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_StoppedReason_TypeOfQuitJob] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[LaborContractIndex] [int] NULL,
+	[SubLaborContractID] [nvarchar](50) NULL,
+	[SignedDate] [datetime] NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[Description] [nvarchar](2000) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+	[SignedPerson] [nvarchar](100) NULL,
+	[RefSubLaborContractIndex] [int] NULL,
+	[SignedPersonOutSystem] [nvarchar](100) NULL,
+	[MonthNumber] [smallint] NULL,
+	[SubLaborContractTypeIndex] [int] NULL,
+ CONSTRAINT [PK_HR_SubLaborContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[ReportTemplate] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_SubLaborContractType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[Company] [int] NOT NULL,
+	[ID] [nvarchar](200) NULL,
+	[Name] [nvarchar](500) NULL,
+	[NameInEng] [nvarchar](500) NULL,
+	[Address] [nvarchar](500) NULL,
+	[Phone1] [nvarchar](50) NULL,
+	[Phone2] [nvarchar](50) NULL,
+	[Fax] [nvarchar](50) NULL,
+	[Mail] [nvarchar](200) NULL,
+	[Website] [nvarchar](200) NULL,
+	[TaxCode] [nvarchar](100) NULL,
+	[Slogan] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[Headquaters] [bit] NULL,
+	[EstablishedDate] [datetime] NULL,
+	[AccountNo] [nvarchar](50) NULL,
+	[BankInfo] [nvarchar](200) NULL,
+	[SecretKey] [nvarchar](100) NULL,
+	[Password] [nvarchar](100) NULL,
+	[ATIDMinChar] [int] NOT NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Subordinate] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[System] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_System] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[GroupUser] [nvarchar](max) NULL,
+	[User] [nvarchar](max) NULL,
+	[Url] [nvarchar](max) NULL,
+	[Order] [int] NULL,
+	[Top] [nvarchar](10) NULL,
+	[Left] [nvarchar](10) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+	[Bottom] [nvarchar](10) NULL,
+ CONSTRAINT [PK_HR_TargetManagement] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[FromMonth] [datetime2](7) NULL,
+	[ToMonth] [datetime2](7) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[LaborContractIndex] [int] NULL,
+ CONSTRAINT [PK_HR_TaxCommitment] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[NameInEng] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [smalldatetime] NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TeacherClassification] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[NameInEng] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [smalldatetime] NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Teaching] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TimeCardUnconfirmReason] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[DefaultPosition] [bigint] NULL,
+	[SalaryIns] [money] NULL,
+	[SalaryBasic] [money] NULL,
+	[SalaryForTax] [money] NULL,
+	[WageScaleIndex] [int] NULL,
+	[InsWageScaleIndex] [int] NULL,
+	[TaxWageScaleIndex] [int] NULL,
+	[WageGroupIndex] [int] NULL,
+	[WageLevelIndex] [int] NULL,
+	[MaxPerson] [int] NULL,
+ CONSTRAINT [PK_HR_Titles] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[AllocatedDate] [smalldatetime] NOT NULL,
+	[DueDate] [smalldatetime] NULL,
+	[Deposit] [money] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Note] [nvarchar](300) NULL,
+	[Size] [nvarchar](10) NULL,
+	[Number] [smallint] NULL,
+	[TypeOfToolAllocation] [int] NULL,
+	[ReturnedDate] [datetime] NULL,
+	[DocumentCode] [nvarchar](50) NULL,
+	[AttachedFile] [ntext] NULL,
+ CONSTRAINT [PK_HR_ToolAllocation] PRIMARY KEY CLUSTERED 
+(
+	[AllocatedDate] ASC,
+	[EmployeeATID] ASC,
+	[CompanyIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[TemporaryDepartmentIndex] [bigint] NULL,
+	[Date] [datetime] NULL,
+	[FromTime] [smalldatetime] NULL,
+	[ToTime] [smalldatetime] NULL,
+	[UseWeeklyShiftOfDept] [bit] NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreateSeparatedSalary] [bit] NULL,
+	[TransferOnDevices] [bit] NULL,
+	[NonOT] [real] NULL,
+	[OT1] [real] NULL,
+	[OT2] [real] NULL,
+	[OT3] [real] NULL,
+	[OT4] [real] NULL,
+	[OT5] [real] NULL,
+	[OT6] [real] NULL,
+	[OT7] [real] NULL,
+	[OT8] [real] NULL,
+	[OT9] [real] NULL,
+	[OT10] [real] NULL,
+	[BeginOfDay] [bit] NULL,
+	[EndOfDay] [bit] NULL,
+	[Synched] [smallint] NULL,
+	[NightHours] [real] NULL,
+	[NightNonOT] [real] NULL,
+	[SynchErrorDevices] [ntext] NULL,
+	[AttachmentFile] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_TransferLabours] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[TemporaryDepartmentIndex] [bigint] NULL,
+	[Date] [datetime] NULL,
+	[FromTime] [datetime] NULL,
+	[ToTime] [datetime] NULL,
+	[UseWeeklyShiftOfDept] [bit] NULL,
+	[Description] [nvarchar](200) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreateSeparatedSalary] [bit] NULL,
+	[TransferOnDevices] [bit] NULL,
+	[EventIndex] [bigint] NULL,
+	[Status] [smallint] NULL,
+ CONSTRAINT [PK_HR_TransferLabours_Suggest] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfChildrenDiploma] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](100) NULL,
+	[NameInEng] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](50) NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NOT NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfDocument] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfFile] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfFoodSafetyCard] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Note] [nvarchar](300) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfHealthCard] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfHumanResourcePolicy] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[NameInEng] [nvarchar](50) NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NOT NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfLabor] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](50) NULL,
+	[NameInEng] [nvarchar](50) NULL,
+	[Description] [nvarchar](300) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NOT NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_TypeOfQuitJob] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Value] [money] NULL,
+	[Deposit] [money] NULL,
+	[ExpiredMonth] [float] NULL,
+ CONSTRAINT [PK_HR_TypeOfToolAllocation] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CompanyIndex] [int] NOT NULL,
+ CONSTRAINT [PK_HR_TypeOfWorkDecision] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[DateOfIssue] [datetime] NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_UnemploymentInsurance] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[UserName] [varchar](300) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[GroupUser] [int] NULL,
+	[IsActive] [bit] NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[UpdatedDate] [datetime] NOT NULL,
+	[ConfirmEmailCount] [int] NOT NULL,
+	[ConfirmedEmail] [bit] NOT NULL,
+	[CodeExpire] [datetime2](7) NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_User] PRIMARY KEY CLUSTERED 
+(
+	[UserName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_Vehicle] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[FromDate] [smalldatetime] NULL,
+	[ToDate] [smalldatetime] NULL,
+	[Note] [nvarchar](500) NULL,
+	[DeclerationTypeIndex] [int] NULL,
+	[PlanTypeIndex] [int] NULL,
+	[InsurancePaymentLevelIndex] [int] NULL,
+	[LivingAreaIndex] [int] NULL,
+	[MinSalaryByAreaIndex] [int] NULL,
+	[FamilyCode] [nvarchar](20) NULL,
+	[HospitalIndex] [int] NULL,
+	[RegisteredAddress] [nvarchar](500) NULL,
+	[RegisteredMoney] [money] NULL,
+	[PaymentMethodInMonth] [int] NULL,
+	[ChangingContentNote] [nvarchar](50) NULL,
+	[AttachedDocument] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_VNPT_Insurance] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[LaborContractTypeIndex] [int] NULL,
+	[ToDate] [datetime2](7) NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[Status] [int] NULL,
+	[ExpiredDate] [datetime2](7) NULL,
+	[EvaluationStatus] [smallint] NOT NULL,
+	[Level] [smallint] NULL,
+	[NextUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_WaitingLaborContract] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[WaitingLaborContractIndex] [int] NOT NULL,
+	[CriteriaForEvaluatingRenewalIndex] [int] NOT NULL,
+	[Type] [smallint] NOT NULL,
+ CONSTRAINT [PK_HR_WaitingLaborContractDetail] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[WaitingLaborContractIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](100) NULL,
+	[Time] [datetime2](7) NOT NULL,
+	[Result] [bit] NULL,
+	[Note] [nvarchar](500) NULL,
+	[Action] [smallint] NOT NULL,
+	[EvaluationLevel] [smallint] NOT NULL,
+	[IsDelete] [bit] NOT NULL,
+ CONSTRAINT [PK_HR_WaitingLaborContractHistory] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](300) NULL,
+	[NameInEng] [nvarchar](300) NULL,
+	[Code] [nvarchar](50) NULL,
+	[Description] [nvarchar](500) NULL,
+	[DistrictIndex] [int] NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[InsuranceCode] [nvarchar](30) NULL,
+ CONSTRAINT [PK_HR_Wards] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [bigint] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](30) NOT NULL,
+	[DepartmentIndex] [bigint] NULL,
+	[PositionIndex] [bigint] NULL,
+	[TitlesIndex] [bigint] NULL,
+	[IsManager] [bit] NULL,
+	[ManagedDepartment] [bigint] NULL,
+	[DirectManager] [nvarchar](max) NULL,
+	[FromDate] [datetime] NULL,
+	[ToDate] [datetime] NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreateSeparatedSalary] [bit] NULL,
+	[ManagedOtherDepartments] [nvarchar](max) NULL,
+	[Note] [nvarchar](200) NULL,
+	[EmployeeKind] [int] NULL,
+	[Synched] [smallint] NULL,
+	[JobDescription] [nvarchar](1000) NULL,
+	[NumberOfDocument] [nvarchar](50) NULL,
+	[AttachmentFile] [nvarchar](1000) NULL,
+	[SignedPerson] [nvarchar](100) NULL,
+	[SignedDate] [smalldatetime] NULL,
+	[ReasonIndex] [int] NULL,
+	[EmployeeCodeByWorking] [nvarchar](50) NULL,
+	[SynchErrorDevices] [ntext] NULL,
+	[ProductProcessIndex] [int] NULL,
+	[WorkingLevelIndex] [int] NULL,
+	[EmployeeCode] [nvarchar](max) NULL,
+	[TypeOfWorkDecisionIndex] [int] NULL,
+	[StatusIndex] [int] NULL,
+	[TeacherClassificationIndex] [int] NULL,
+	[TeachingIndex] [int] NULL,
+ CONSTRAINT [PK_HR_WorkingInfo] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[WorkingInfoIndex] [bigint] NULL,
+	[TypeOfLaborIndex] [int] NULL,
+	[FromDate] [datetime2](7) NOT NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+	[CreatedDate] [datetime2](7) NULL,
+	[CreatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_WorkingInfo_TypeOfLabor] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](100) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [smalldatetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_WorkingInfoReason] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Code] [nvarchar](50) NULL,
+	[Name] [nvarchar](200) NULL,
+	[NameInEng] [nvarchar](200) NULL,
+	[Description] [nvarchar](500) NULL,
+	[UpdatedDate] [datetime] NULL,
+	[UpdatedUser] [nvarchar](100) NULL,
+ CONSTRAINT [PK_HR_WorkingLevel] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[EmployeeATID] [nvarchar](max) NULL,
+	[WorkingType] [int] NOT NULL,
+	[PayrollMonth] [datetime2](7) NOT NULL,
+	[Year] [int] NOT NULL,
+ CONSTRAINT [PK_HR_WorkingType] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+
+Table [PRIMARY] {
+  (
+	[Index] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyIndex] [int] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[NameInEng] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+ CONSTRAINT [PK_HR_WorkPlace] PRIMARY KEY CLUSTERED 
+(
+	[Index] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+),
+}
+

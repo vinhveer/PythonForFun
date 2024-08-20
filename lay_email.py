@@ -16,7 +16,7 @@ login_button = driver.find_element(By.ID, "loginbtn")
 
 # Nhập thông tin đăng nhập
 username_input.send_keys("64132989")
-password_input.send_keys("@Nguyen%quang%vinh0986209261")
+password_input.send_keys("123456")
 
 # Bấm nút đăng nhập
 login_button.click()
